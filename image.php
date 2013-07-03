@@ -23,8 +23,8 @@ if(isset($_GET['sizes']) && strlen($_GET['sizes']) >0 )
 				<nav id="breadcrumbs">
 				    <?php printHomeLink('', ' &raquo; '); ?>
 					<a href="<?php echo getGalleryIndexURL(); ?>" title="<?php echo getGalleryTitle(); ?> Index">
-					<?php echo getGalleryTitle(); ?></a> &raquo; <?php printParentBreadcrumb('',' &raquo; ',' &raquo; '); ?>
-					<?php printAlbumBreadcrumb('', ' &raquo; '); ?>
+					<?php echo getGalleryTitle(); ?></a> &raquo; <?php printParentBreadcrumb('',' » ','� '); ?>
+					<?php printAlbumBreadcrumb('', ' » '); ?>
 					<?php echo getImageTitle(); ?>
 				</nav>
 				<section id="imageSide">

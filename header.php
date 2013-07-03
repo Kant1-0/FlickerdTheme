@@ -2,7 +2,7 @@
 <html dir="ltr" lang="en-US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=<?php echo getOption('charset'); ?>" />
-<?php 
+<?php
 // Build page title
 $imgtitle = getBareImageTitle();
 $albtitle = getBareAlbumTitle();
@@ -41,6 +41,7 @@ if(!isset($_GET['album'])) echo ' id="pg-'. getCurrentPage() .'"'; ?>>
 			<ul class="flat menu">
 				<li><span class="menuitem"><a href="<?php echo getGalleryIndexURL(); ?>" title="Home">Home</a></span></li>
 				<?php if(zp_loggedin()) { ?><li><span class="admintoolbox"><?php printAdminToolbox(); ?></span></li><?php }?>
+				<li><span><?php printUserLogin_out(); ?></span></li>
 			</ul>
 			<ul class="flat search">
 				<li>

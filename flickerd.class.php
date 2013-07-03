@@ -123,7 +123,7 @@ class flickerd
 	    }
 	    
 	    
-	    $images = query_full_array("SELECT images.albumid, images.filename AS filename, images.mtime as mtime, images.title AS title, " .
+	    $images = query_full_array("SELECT images.albumid, images.filename AS filename, images.mtime AS mtime, images.date AS date, images.title AS title, " .
 	            "albums.folder AS folder, images.show, albums.show, albums.password FROM " .
 	        	prefix('images') ." AS images, ". prefix('albums') ." AS albums " .
 			    " WHERE images.albumid = albums.id " . $imageWhere . $albumWhere .
@@ -175,7 +175,8 @@ class flickerd
                 <a href="%s" title="%s"><img src="%s" alt="%2\$s" %s /></a>
                 <h4>%2\$s</h4>
                 <p class="pic-info">Uploaded on %s</p>
-                <p class="pic-info-bottom">%s | %s Comments</p>
+                <p class="pic-info-bottom">Taken on %s</p>
+                <!--<p class="pic-info-bottom">%s | %s Comments</p>-->
             </li>
 ________EOD;
 
@@ -197,8 +198,9 @@ ________EOD;
 		    $link   = html_encode( $image->getImageLink() );
 		    $title  = html_encode( $image->getTitle() );
 		    $img    = html_encode( $image->getCustomImage(240, $width, $height, NULL, NULL, NULL, NULL, TRUE, NULL, $title, 'feed-thumb') );
-		    $date   = zpFormattedDate( getOption('date_format'), $image->data['mtime'] ); // Date Uploaded
-            $hits   = $image->get("hitcounter");
+		    $uploaded_date = zpFormattedDate( getOption('date_format'), $image->get("mtime") ); // Date Uploaded
+		    $taken_date = zpFormattedDate( getOption('date_format'), strtotime($image->get('EXIFDateTimeOriginal')) ); // Date Taken
+                    $hits   = $image->get("hitcounter");
 		
 		    if( empty($hits) ) $hits = '0';
 		
@@ -207,7 +209,7 @@ ________EOD;
 		    $count  = $image->getCommentCount();
 		    $size   = getImageWH( $image->getHeight(), $image->getWidth(), 240 );
 		    $size  .= ' data-preview_url="'. $image->getSizedImage(getOption('image_size')) .'"';
-		    $content .= sprintf( $lif, $link, $title, $img, $size, $date, $hits, $count );
+		    $content .= sprintf( $lif, $link, $title, $img, $size, $uploaded_date, $taken_date, $hits, $count );
 		}
 	    $content .= "\n\t</ul>\n</div><!-- #flkr-feed -->\n";
 	    
