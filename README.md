@@ -1,4 +1,5 @@
-# Flickerd ZenPhoto Theme *(2016 Fork for Zenphoto version 1.4.11)*
+# Flickerd ZenPhoto Theme 
+####*(2016 Fork for Zenphoto version 1.4.11)*
 
 **Note:** This is a Fork from [Amereservant git-repo](http://github.com/amereservant/FlickerdTheme) changing some piece of the code of the Flickered Theme to work with the new version of ZenPhoto version 1.4.11.
 
@@ -25,11 +26,12 @@ Not available for now on the [ZenPhoto's Forums](http://www.zenphoto.org/support
 ### Current Issues
 
 - [Issue 1](https://github.com/Kant1-0/FlickerdTheme/issues/1): Warning: array_slice() expects parameter 1 to be array, null given in flickerd.class.php (line 193)
-- [Issue 2](https://github.com/Kant1-0/FlickerdTheme/issues/2): Warning: printAdminToolbox (called from header.php line 43) is deprecated
+- [Issue 2](https://github.com/Kant1-0/FlickerdTheme/issues/2) *(Solved but still Open)*: Warning: printAdminToolbox (called from header.php line 43) is deprecated
 
 #### Version 1.1 (currently in work in this fork)
 
 - **Functions setThemeOption()** has been replaced by **setOptionDefault()**. The theme can now be activate in ZenPhoto without warning messages.
+- **Function printAdminToolbox()** has been replaced by **zp_apply_filter('theme_body_close')**. The admin tool seems to work now. Better checking needed.
 
 #### Version 1.0.2 (from [Amereservant git-repo](http://github.com/amereservant/FlickerdTheme))
 
