@@ -1,6 +1,6 @@
 # Flickerd ZenPhoto Theme *(2016 Fork for Zenphoto version 1.4.11)*
 
-**Note:** This is a Fork from [Amereservant git-repo](http://github.com/amereservant/FlickerdTheme) that reworks the code of the Flickered Theme to work with the new version of ZenPhoto version 1.4.11.
+**Note:** This is a Fork from [Amereservant git-repo](http://github.com/amereservant/FlickerdTheme) changing some piece of the code of the Flickered Theme to work with the new version of ZenPhoto version 1.4.11.
 
 Flickerd is a [ZenPhoto](http://www.zenphoto.org) theme that is based off of the [Flickrish Theme](http://code.google.com/p/flickrish/) hosted on Google Code. It integrates a photo stream similar to Flickr.com and implements a similar design as well. It is still being developed and I hope to be able to add new features soon.
 
@@ -18,11 +18,20 @@ Refer to ZenPhoto's documentation on how to add and use themes. It works just li
 Please report issues on the project's "GitHub Issues" page of this Fork.
 
 **Comments/Feedback** <br>
-If you'd like to leave feedback, please visit the [ZenPhoto's Forums](http://www.zenphoto.org/support/) and leave a comment on the post for this theme. Hopefully a better commenting system can be implimented at a later date.
+Not available for now on the [ZenPhoto's Forums](http://www.zenphoto.org/support/).
 
-## Changelog
+# Changelog
 
-#### Version 1.0.2
+### Current Issues
+
+- [Issue 1](https://github.com/Kant1-0/FlickerdTheme/issues/1): Warning: array_slice() expects parameter 1 to be array, null given in flickerd.class.php (line 193)
+- [Issue 2](https://github.com/Kant1-0/FlickerdTheme/issues/2): Warning: printAdminToolbox (called from header.php line 43) is deprecated
+
+#### Version 1.1 (currently in work in this fork)
+
+- setThemeOption() functions has been replaced by setOptionDefault(). The theme can now be activate in ZenPhoto without warning messages.
+
+#### Version 1.0.2 (from [Amereservant git-repo](http://github.com/amereservant/FlickerdTheme))
 
 - **GoogleMap Plugin Support** - Added support for the GoogleMap plugin as per request in [Issue 11](https://github.com/amereservant/FlickerdTheme/issues/11) and added the option *GoogleMap Width* to the *Theme Options* page.
 - **Back-link Added to Sizes View** - As per request in [Issue 9](https://github.com/amereservant/FlickerdTheme/issues/9), a backlink has been added to the image *Sizes* page.
