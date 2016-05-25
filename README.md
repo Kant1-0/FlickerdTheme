@@ -29,7 +29,7 @@ Not available for now on the [ZenPhoto's Forums](http://www.zenphoto.org/support
 
 #### Version 1.1 (currently in work in this fork)
 
-- setThemeOption() functions has been replaced by setOptionDefault(). The theme can now be activate in ZenPhoto without warning messages.
+- **Functions setThemeOption()** has been replaced by **setOptionDefault()**. The theme can now be activate in ZenPhoto without warning messages.
 
 #### Version 1.0.2 (from [Amereservant git-repo](http://github.com/amereservant/FlickerdTheme))
 
