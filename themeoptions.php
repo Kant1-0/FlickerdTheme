@@ -38,7 +38,7 @@ class ThemeOptions {
 		setThemeOptionDefault('gmap_width', 300);
 		setThemeOptionDefault('flickerd_preview_delay', 700);
 		setThemeOptionDefault('flickerd_use_fb_like', 1);
-		setThemeOption('zenpage',      1); // This never get's turned off.
+		setOptionDefault('zenpage', 1); // This never get's turned off.
 	}
    
    /**
