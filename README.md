@@ -2,7 +2,8 @@
 ####*(2016 Fork for Zenphoto version 1.4.11)*
 
 **Note:** This is a Fork from [Amereservant git-repo](http://github.com/amereservant/FlickerdTheme) changing some piece of the code of the Flickered Theme to work with the new version of ZenPhoto version 1.4.11.
-
+<br>
+<br>
 Flickerd is a [ZenPhoto](http://www.zenphoto.org) theme that is based off of the [Flickrish Theme](http://code.google.com/p/flickrish/) hosted on Google Code. It integrates a photo stream similar to Flickr.com and implements a similar design as well. It is still being developed and I hope to be able to add new features soon.
 
 The *Flickerd Theme* is licensed under the [MIT License](http://opensource.org/licenses/mit-license.php).
