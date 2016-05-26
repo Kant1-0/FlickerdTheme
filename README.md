@@ -1,5 +1,5 @@
-# Flickerd ZenPhoto Theme 
-####*(2016 Fork for Zenphoto version 1.4.11)*
+# Flickerd ZenPhoto Theme ![](/images/logo.png)
+####*(2016 Fork for Zenphoto version 1.4.11)* 
 
 **Note:** This is a Fork from [Amereservant git-repo](http://github.com/amereservant/FlickerdTheme) changing some piece of the code of the Flickered Theme to work with the new version of ZenPhoto version 1.4.11.
 <br>
@@ -13,6 +13,8 @@ The *Flickerd Theme* is licensed under the [MIT License](http://opensource.org/l
 **PHP 5 Required!**
 
 Refer to ZenPhoto's documentation on how to add and use themes. It works just like a normal theme does.
+
+![preview](http://flickerd.popzelife.me/albums/Coding/flickerd-preview.png)
 
 # Feedback
 
