@@ -18,7 +18,7 @@ require 'header.php';
 					    <?php while(next_album(true)) { ?>
 					    <li class="album">
 						    <div class="albumPic">
-							    <a href="<?php echo getAlbumLinkURL(); ?>" title="<?php echo getAlbumTitle(); ?>">
+							    <a href="<?php echo getAlbumURL(); ?>" title="<?php echo getAlbumTitle(); ?>">
 							        <?php if(!$_zp_current_album->checkAccess()) { // Display a protected image if they do not have access ?>
 							        <img class="albumThumb" height="75" width="75" src="<?php echo $_zp_themeroot; ?>/images/passwordprotected.png" />
 							        <?php } else { ?>
@@ -27,7 +27,7 @@ require 'header.php';
 							    </a>
 						    </div>
 						    <section class="albumInfo">
-						        <h4><a href="<?php echo getAlbumLinkURL(); ?>" title="<?php echo getAlbumTitle(); ?>"><?php echo getAlbumTitle(); ?></a></h4>
+						        <h4><a href="<?php echo getAlbumURL(); ?>" title="<?php echo getAlbumTitle(); ?>"><?php echo getAlbumTitle(); ?></a></h4>
 						        <?php 
 							    $subalbumcnt = getNumAlbums(); 
 							    $photocnt    = getNumImages();

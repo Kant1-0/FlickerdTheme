@@ -6,8 +6,8 @@
 // Build page title
 $imgtitle = getBareImageTitle();
 $albtitle = getBareAlbumTitle();
-$title    = ($imgtitle ? $imgtitle .' &laquo; ':'');
-$title   .= ($albtitle ? $albtitle .' &laquo; ':'') . getGalleryTitle();
+$title    = ($imgtitle ? $imgtitle .' « ':'');
+$title   .= ($albtitle ? $albtitle .' « ':'') . getGalleryTitle();
 $delay    = getOption('flickerd_preview_delay');
 $delay    = $delay ? $delay : 500;
 ?>
@@ -35,6 +35,7 @@ if(!isset($_GET['album'])) echo ' id="pg-'. getCurrentPage() .'"'; ?>>
 <?php zp_apply_filter('theme_body_open'); ?>
 <div id="container">
     <header>
+        <img src="<?php echo $_zp_themeroot; ?>/images/logo.png" alt="Flickrish">
 		<h1><?php printFlkrTitle(); ?></h1>
 		
 		<nav id="menuBar">

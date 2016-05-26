@@ -23,9 +23,9 @@ $_SESSION['flickrish_album_layout'] = $layout; ?>
 <!-- ALBUM PAGE START -->
 			<section id="content">
 				<nav id="breadcrumbs">
-				    <?php printHomeLink('', ' &raquo; '); ?>
+				    <?php printHomeLink('', ' » '); ?>
 					<a href="<?php echo getGalleryIndexURL(); ?>" title="<?php echo getGalleryTitle(); ?> Index">
-					<?php echo getGalleryTitle(); ?></a> &raquo; <?php printParentBreadcrumb('',' &raquo; ',' &raquo; '); ?>
+					<?php echo getGalleryTitle(); ?></a> &raquo; <?php printParentBreadcrumb('',' » ',' » '); ?>
 					<?php printAlbumTitle(); ?>
 				</nav>
 			
@@ -33,11 +33,11 @@ $_SESSION['flickrish_album_layout'] = $layout; ?>
 					<h2><?php printAlbumTitle(true); ?></h2>
 					<div id="albumOptions">
 					    <?php 
-					    if($layout != '1' && $layout != 0) makeAnchorLink( getAlbumLinkURL() . (getOption('mod_rewrite') ? '?':'&amp;') .'l=1', 'Thumbnail View', 'Thumbnail');
+					    if($layout != '1' && $layout != 0) makeAnchorLink( getAlbumURL() . (getOption('mod_rewrite') ? '?':'&amp;') .'l=1', 'Thumbnail View', 'Thumbnail');
 					    else echo '<strong>Thumbnail</strong>'; ?>      
 					    &nbsp;<span>|</span>&nbsp;
 					    <?php
-					    if($layout !== '2') makeAnchorLink( getAlbumLinkURL() . (getOption('mod_rewrite') ? '?':'&amp;') .'l=2', 'Detail View', 'Detail');
+					    if($layout !== '2') makeAnchorLink( getAlbumURL() . (getOption('mod_rewrite') ? '?':'&amp;') .'l=2', 'Detail View', 'Detail');
 					    else echo '<strong>Detail</strong>'; ?>
 					</div>
 				</section>
@@ -52,11 +52,11 @@ $_SESSION['flickrish_album_layout'] = $layout; ?>
 					<?php while( next_album(true) ) { ?>
 					    <li>
 					        <div class="albumPic">
-						        <a href="<?php echo getAlbumLinkURL();?>" title="<?php echo getAlbumTitle(); ?>">
+						        <a href="<?php echo getAlbumURL();?>" title="<?php echo getAlbumTitle(); ?>">
 							        <img class="albumThumb" height="75" width="75" src="<?php echo getAlbumThumb(); ?>" alt="<?php echo getAlbumTitle(); ?>" />
 						        </a>
 					        </div>
-					        <h4><a href="<?php echo getAlbumLinkURL(); ?>" title="<?php echo getAlbumTitle(); ?>"><?php echo getAlbumTitle(); ?></a></h4>
+					        <h4><a href="<?php echo getAlbumURL(); ?>" title="<?php echo getAlbumTitle(); ?>"><?php echo getAlbumTitle(); ?></a></h4>
 					        <section class="albumInfo">
 					            <strong><?php echo getNumImages(); ?></strong> photos
 					        </section>
@@ -71,14 +71,14 @@ $_SESSION['flickrish_album_layout'] = $layout; ?>
 						<?php printAlbumDesc(true); ?>
 					</div>
 					<div class="albumStats">
-						<?php echo getNumImages(); ?> photos | <?php echo getHitcounter(); ?> views 
+						<?php echo getNumImages(); ?> photos | <?php echo $_zp_current_album->getHitcounter(); ?> views 
 					</div>
 				</aside>
 				<section id="images-grid">
 				    <ul>
 					<?php while(next_image(true)) { ?>
 					    <li>
-						    <a href="<?php echo htmlspecialchars(getImageLinkURL()); ?>" title="<?php echo getImageTitle(); ?>" >
+						    <a href="<?php echo htmlspecialchars(getImageURL()); ?>" title="<?php echo getImageTitle(); ?>" >
 								<img height="75" width="75" src="<?php echo getImageThumb(); ?>" alt="<?php echo getImageTitle(); ?>" />
 							</a>
 						</li>
@@ -99,11 +99,11 @@ $_SESSION['flickrish_album_layout'] = $layout; ?>
 					<?php while( next_album(false) ) { ?>
 					    <li>
 					        <div class="albumPic">
-						        <a href="<?php echo getAlbumLinkURL(); ?>" title="<?php echo getAlbumTitle(); ?>" >
+						        <a href="<?php echo getAlbumURL(); ?>" title="<?php echo getAlbumTitle(); ?>" >
 							        <img class="albumThumb" height="75" width="75" src="<?php echo getAlbumThumb(); ?>" />
 						        </a>
 					        </div>
-					        <h4><a href="<?php echo getAlbumLinkURL(); ?>" title="<?php echo getAlbumTitle(); ?>"><?php echo getAlbumTitle(); ?></a></h4>
+					        <h4><a href="<?php echo getAlbumURL(); ?>" title="<?php echo getAlbumTitle(); ?>"><?php echo getAlbumTitle(); ?></a></h4>
 					        <section class="albumInfo">
 					            <strong><?php echo getNumImages(); ?></strong> photos</span>
 					        </section>
@@ -116,15 +116,14 @@ $_SESSION['flickrish_album_layout'] = $layout; ?>
 				<section class="images">
 					<ul>
 					<?php while (next_image()) { 
-					    $views    = getHitcounter($_zp_current_image);
-					    $comments = getCommentCount($_zp_current_image); ?>
+					    $views    = $_zp_current_image->getHitcounter();
+					    $comments = $_zp_current_image->getCommentCount(); ?>
 					    <li>
-					        <a href="<?php echo htmlspecialchars(getImageLinkURL()); ?>" title="<?php echo getImageTitle(); ?>">
+					        <a href="<?php echo htmlspecialchars(getImageURL()); ?>" title="<?php echo getImageTitle(); ?>">
 									<?php printCustomSizedImageMaxSpace(getImageTitle(),240,240); ?>
 							</a>
 						    <h4><?php echo getImageTitle(); ?></h4>
-						    <div class="imageDescription"><?php echo getContentShorten(stripPTags(getImageDesc($_zp_current_image)), 100, 
-						        '<a href="'. htmlspecialchars(getImageLinkURL()) .'">...</a>'); ?></div>
+						    <div class="imageDescription"><?php echo getImageDesc($_zp_current_image); ?></div>
 						    <p class="dateuploaded">Uploaded on <span><?php  echo date('F j, Y', $_zp_current_image->data['mtime']); ?></span></p>
 						    <p class="viewinfo">
 						        <?php echo $views; ?> view<?php echo $views != '1' ? 's':''; ?> &nbsp;|&nbsp; 
@@ -135,8 +134,8 @@ $_SESSION['flickrish_album_layout'] = $layout; ?>
 					</ul>
 					<div class="clear"></div>
 				</section>
-			    <?php if(hasPrevPage() || hasNextPage()) printPageListWithNav('&laquo; Prev', 'Next &raquo;', false , 'pagelist', 'pagelist'); ?>
-                <p id="itemCount">(<?php echo getNumImages(); ?> items)</p>
+			    <?php if(hasPrevPage() || hasNextPage()) printPageListWithNav('« Prev', 'Next »', false , 'pagelist', 'pagelist'); ?>
+                <p id="itemCount">(<?php echo getNumImages(); ?> items)</p>»
 			<?php	} //endif ?>
 			</section>
 <?php require 'footer.php'; ?>

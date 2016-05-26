@@ -21,9 +21,9 @@ if(isset($_GET['sizes']) && strlen($_GET['sizes']) >0 )
 <!-- // IMAGE PAGE // -->
 			<section id="content">
 				<nav id="breadcrumbs">
-				    <?php printHomeLink('', ' &raquo; '); ?>
+				    <?php printHomeLink('', ' » '); ?>
 					<a href="<?php echo getGalleryIndexURL(); ?>" title="<?php echo getGalleryTitle(); ?> Index">
-					<?php echo getGalleryTitle(); ?></a> &raquo; <?php printParentBreadcrumb('',' » ','� '); ?>
+					<?php echo getGalleryTitle(); ?></a> &raquo; <?php printParentBreadcrumb('',' » ',' » '); ?>
 					<?php printAlbumBreadcrumb('', ' » '); ?>
 					<?php echo getImageTitle(); ?>
 				</nav>
@@ -132,7 +132,7 @@ if(isset($_GET['sizes']) && strlen($_GET['sizes']) >0 )
 							<?php } ?>
 							<li class="noliStyle"><?php printImageMetadata('More properties', false); ?></li>
 							<?php if($flkr->getOption('hitcounter', true)) { ?>
-							<li>Viewed <?php echo getHitcounter(); ?> time<?php echo (getHitcounter() == '1' ? '':'s'); ?></li>
+							<li>Viewed <?php echo $_zp_current_image->getHitcounter(); ?> time<?php echo ($_zp_current_image->getHitcounter() == '1' ? '':'s'); ?></li>
 							<?php } ?>
 						</ul>
 					</section>

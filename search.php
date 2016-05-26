@@ -50,15 +50,14 @@ require 'header.php';
 	<section class="images">
 		<ul>
 		<?php while (next_image()) { 
-		    $views    = getHitcounter($_zp_current_image);
-		    $comments = getCommentCount($_zp_current_image); ?>
+		    $views    = $_zp_current_image->getHitcounter();
+		    $comments = $_zp_current_image->getCommentCount(); ?>
 		    <li>
 		        <a href="<?php echo htmlspecialchars(getImageLinkURL()); ?>" title="<?php echo getImageTitle(); ?>">
 						<?php printCustomSizedImageMaxSpace(getImageTitle(),240,240); ?>
 				</a>
 			    <h4><?php echo getImageTitle(); ?></h4>
-			    <div class="imageDescription"><?php echo getContentShorten(stripPTags(getImageDesc($_zp_current_image)), 100, 
-			        '<a href="'. htmlspecialchars(getImageLinkURL()) .'">...</a>'); ?></div>
+			    <div class="imageDescription"><?php echo getImageDesc($_zp_current_image); ?></div>
 			    <p class="dateuploaded">Uploaded on <span><?php  echo date('F j, Y', $_zp_current_image->data['mtime']); ?></span></p>
 			    <p class="viewinfo">
 			        <?php echo $views; ?> view<?php echo $views != '1' ? 's':''; ?> &nbsp;|&nbsp; 
@@ -69,7 +68,7 @@ require 'header.php';
 		</ul>
 		<div class="clear"></div>
 	</section>
-    <?php if(hasPrevPage() || hasNextPage()) printPageListWithNav('&laquo; Prev', 'Next &raquo;', false , 'pagelist', 'pagelist'); ?>
+    <?php if(hasPrevPage() || hasNextPage()) printPageListWithNav('« Prev', 'Next »', false , 'pagelist', 'pagelist'); ?>
     <p id="itemCount">(<?php echo getNumImages(); ?> items)</p>
     <?php } // endif ?>
     <?php if ($total == 0) {
