@@ -26,13 +26,20 @@ Not available for now on the [ZenPhoto's Forums](http://www.zenphoto.org/support
 
 ### Current Issues
 
-- [Issue 1](https://github.com/Kant1-0/FlickerdTheme/issues/1): Warning: array_slice() expects parameter 1 to be array, null given in flickerd.class.php (line 193)
-- [Issue 2](https://github.com/Kant1-0/FlickerdTheme/issues/2) *(Solved but still Open)*: Warning: printAdminToolbox (called from header.php line 43) is deprecated
+- [Issue 1](https://github.com/Kant1-0/FlickerdTheme/issues/1) **[to watch]**: Warning: array_slice() expects parameter 1 to be array, null given
+- [Issue 2](https://github.com/Kant1-0/FlickerdTheme/issues/2) **[to watch]**: Warning: printAdminToolbox is deprecated
+- [Issue 3](https://github.com/Kant1-0/FlickerdTheme/issues/3) **[to watch]**: Fatal error: Call to undefined function getHitcounter()
+- [Issue 4](https://github.com/Kant1-0/FlickerdTheme/issues/4) **[to watch]**: Unknown function getContentShorten 
+- [Issue 5](https://github.com/Kant1-0/FlickerdTheme/issues/5) **[IMPORTANT]**: Fatal error: Invalid album instantiation: Gallery object does not exist
 
 #### Version 1.1 (currently in work in this fork)
 
 - **Functions setThemeOption()** has been replaced by **setOptionDefault()**. The theme can now be activate in ZenPhoto without warning messages.
 - **Function printAdminToolbox()** has been replaced by **zp_apply_filter('theme_body_close')**. The admin tool seems to work now. Better checking needed.
+- **Function getContentShorten()** has been replaced by **getImageDesc()**. However it might not be the best alternative.
+- **Function getHitcounter()** updated to fit the newer version of Zen Photo.
+- Updated typo, espcially for HTML entities such as &raquo;.
+- Added the Flickrish logo to the header and update the iconbuddy with a smile :).
 
 #### Version 1.0.2 (from [Amereservant git-repo](http://github.com/amereservant/FlickerdTheme))
 
